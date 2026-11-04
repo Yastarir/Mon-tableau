@@ -4,6 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Mes points</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#14171a">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
 <style>
 :root{
   box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
@@ -81,8 +85,8 @@ const COLS=[
  {t:"Ce que je dois faire",k:"k1",a:[["Du sport",1.5],["Mes devoirs",1],["Hygiène générale",0.5]]},
  {t:"Ce que je peux (une bonne chose)",k:"k2",a:[["Coucher avant 22h",1],["Marcher",0.5],["Lire 30 min",0.5],["Bien manger (par repas)",0.25],["Boire 1,5 L d’eau",0.25],["Éducation à l’aviation",0.25],["Jouer aux échecs",0.25],["Écouter de la musique",0]]},
  {t:"Ce que je peux, sans excès",k:"k3",a:[["Jouer à Valorant",-0.25],["Plus d’1h de TikTok",-0.25]]},
- {t:"Ce que je dois éviter au maximum",k:"k4",a:[["Grignotage sucré / fast-food",-0.5],["Mal manger (par repas)",-0.75],["Écart A",-1],["Plus de 2h30 de TikTok",-2]]},
- {t:"Ce que je m’interdis",k:"k5",a:[["Esquiver le sport (ne même pas essayer)",-2],["Couché après 23h30",-2],["Écart B",-2.5],["Devoirs à moitié ou pas du tout",-3],["Écart C",-4]]}
+ {t:"Ce que je dois éviter au maximum",k:"k4",a:[["Grignotage sucré / fast-food",-0.5],["Mal manger (par repas)",-0.75],["Écart Pensée",-1],["Plus de 2h30 de TikTok",-2]]},
+ {t:"Ce que je m’interdis",k:"k5",a:[["Esquiver le sport (ne même pas essayer)",-2],["Couché après 23h30",-2],["Écart TikTok",-2.5],["Devoirs à moitié ou pas du tout",-3],["Écart P",-4]]}
 ];
 const KEY="points_events_v1";
 let sel=null;
@@ -171,6 +175,7 @@ document.getElementById("undo").onclick=()=>{events.pop();save();render()};
 })();
 render();
 setInterval(render,30000);
+if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js").catch(()=>{});
 </script>
 </body>
 </html>
